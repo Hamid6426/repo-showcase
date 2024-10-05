@@ -1,0 +1,25 @@
+name: Update Repo Data
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'  # This cron expression means "every Monday at midnight"
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Fetch GitHub Repositories
+        run: |
+          curl -s https://api.github.com/users/<your-username>/repos > repos.json
+
+      - name: Commit and Push JSON
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add repos.json
+          git commit -m "Update repository data [skip ci]"
+          git push
