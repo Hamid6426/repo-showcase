@@ -1,0 +1,52 @@
+/* styles.css */
+
+/* Basic page styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+/* Container for all repository items */
+.repo-container {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual repository item */
+.repo-item {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 20px 0;
+}
+
+/* Repository name styling */
+.repo-name {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+/* Repository description styling */
+.repo-description {
+  font-size: 16px;
+  color: #666;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+/* Add some space between each repository */
+.repo-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+/* Hover effect for repository items */
+.repo-item:hover {
+  background-color: #f4f4f4;
+  transition: background-color 0.3s ease;
+}

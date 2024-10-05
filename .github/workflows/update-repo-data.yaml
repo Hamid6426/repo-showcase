@@ -2,7 +2,7 @@ name: Update Repo Data
 
 on:
   schedule:
-    - cron: '0 0 * * 1'  # This cron expression means "every Monday at midnight"
+    - cron: '0 0 * * 1'  # Every Monday at midnight
 
 jobs:
   update-data:
@@ -14,12 +14,12 @@ jobs:
 
       - name: Fetch GitHub Repositories
         run: |
-          curl -s https://api.github.com/users/<your-username>/repos > repos.json
+          curl -s https://api.github.com/users/Hamid6426/repos > repos.json
 
       - name: Commit and Push JSON
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           git add repos.json
-          git commit -m "Update repository data [skip ci]"
+          git commit -m "Update repository data [skip ci]" || echo "No changes to commit"
           git push
